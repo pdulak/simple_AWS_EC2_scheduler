@@ -4,12 +4,32 @@ from datetime import datetime
 #
 # configuration
 #
+
+#
+# region_name - the region that should be covered by the scheduler
+#
 region_name='us-east-1'
+#
+# instances_to_check - instances are found by the tag name and tag value. In the example
+# below, the tag name is "scheduler_name" and the tag value is "canada_office"
+#
 instances_to_check = { 'tag_name': 'scheduler_name', 'tag_value': 'canada_office' }
+#
+# start_times - the list of the start times during the day, using 24h notation, for 
+# example, if the instances should be started at 8:00 only, set this value to [ '8:00' ]
+# if they should be started at 4:00 and 14:00, set to [ '4:00', '14:00' ]
+#
+# stop_times - the list of the stop times, defined in the same way as start_times
+#
 start_times = [ '4:00', '14:00' ]
 stop_times = [ '4:30', '16:00' ]
+#
+# check_by_n_minutes - the number of minutes after start or stop time during which
+# the scheduler will check if the instance is running.
+#
 check_by_n_minutes = 15
 
+#########################################################################################
 #
 # no changes required past this line
 #
